@@ -1,0 +1,36 @@
+import React from 'react';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
+
+const workouts = [
+    { id: '1', name: 'Full Body Workout' },
+    { id: '2', name: 'Leg Day' },
+    { id: '3', name: 'Upper Body Strength' },
+];
+
+const WorkoutList = () => {
+    return (
+        <FlatList
+            data={workouts}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+                <View style={styles.item}>
+                    <Text style={styles.text}>{item.name}</Text>
+                </View>
+            )}
+        />
+    );
+};
+
+const styles = StyleSheet.create({
+    item: {
+        padding: 15,
+        backgroundColor: '#f8f8f8',
+        marginVertical: 8,
+        borderRadius: 10,
+    },
+    text: {
+        fontSize: 18,
+    },
+});
+
+export default WorkoutList;
